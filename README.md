@@ -1,5 +1,5 @@
 # Auto YouTube Downloader
-This project contains an AutoHotkey script that uses Chrome and VLC media player to automically download YouTube videos.
+This project contains an AutoHotkey script that uses Chrome and VLC media player to automatically download YouTube videos.
 
 ## Getting Started
 
@@ -25,10 +25,10 @@ Ctrl + Alt + p: Pause script
 * Bugs
   * Chrome sometimes loses focus on first search. Possible fix: Search screen (not window) for search bar and click instead of using Ctrl + l
   * Ctrl + Alt + r doesn't always close all windows
-  * Scipt sometimes stops when saving video
+  * Script sometimes stops when saving video
   * Test network stream error logging
 * Enhancements
-  * Make cancelling input dialog reload script
+  * Make canceling input dialog reload script
   * Handle saving video when name already exists in directory. Have user specify overwrite or skip at start of script?
   * Reload or ExitApp when error occurs
   * Add checks for windows off screen before clicking. Add error logs for this.
@@ -40,6 +40,6 @@ Ctrl + Alt + p: Pause script
   * Switch to Internet Explorer or Edge to handle webpages better? Or use [Selenium](https://www.reddit.com/r/AutoHotkey/comments/6dmzbf/using_selenium_autohotkey_to_automate_browsers/)?
 
 ## Attributions
-Part of autoYoutubeDownloader.ahk was made using [Pulovers Macro Creator](https://github.com/Pulover/PuloversMacroCreator).
+Part of autoYoutubeDownloader.ahk was made using [Pulover's Macro Creator](https://github.com/Pulover/PuloversMacroCreator).
 
 JSON parsing is done using [AutoHotkey-JSON](https://github.com/cocobelgica/AutoHotkey-JSON)
