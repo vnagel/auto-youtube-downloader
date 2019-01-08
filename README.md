@@ -6,7 +6,7 @@ This project contains an AutoHotkey script that uses Chrome and VLC media player
 ### Prerequisites
 Install [Chrome](https://www.google.com/chrome/) and [VLC media player](https://www.videolan.org/vlc/).
 
-You can run autoYoutubeDownloader.exe found in the [releases](https://github.com/vnagel/auto-youtube-downloader/releases) without installing ay additional software. It must be run in a directory containing all the project files. If you want to edit the script, you need to install [AutoHotkey](https://www.autohotkey.com/download/).
+You can run autoYoutubeDownloader.exe found in the [releases](https://github.com/vnagel/auto-youtube-downloader/releases) without installing any additional software. It must be run in a directory containing all the project files. If you want to edit the script, you need to install [AutoHotkey](https://www.autohotkey.com/download/).
 
 You might need to retake the screen clippings that are in the "images" directory if the your screen resolution differs from mine (1920 x 1080).
 
