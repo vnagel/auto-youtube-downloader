@@ -18,9 +18,9 @@ vlc := -1
 chrome := -1
 
 ^!r::
-Reload
 closeProcessWindows(vlc)
 closeProcessWindows(chrome)
+Reload
 Return
 
 ^!e::ExitApp
@@ -46,7 +46,7 @@ Loop, Read, % filepaths.youtubeUrlTxtFilepath
     activateAndWaitPid(vlc)
     vlcOpenNetworkStream(vlc)
     vlcPlayNetworkStream(A_LoopReadLine, vlc)
-    vlcHandleNetworkStreamError(filepaths.errorLogDir, vlc, chrome)  ; will ExitApp here if error
+    vlcHandleNetworkStreamError(filepaths.errorLogDir, vlc, chrome)
     vlcOpenCodecInformation(vlc)
     codecInfo := vlcGetCodecInformation(vlc)
     vlcExitCodecInformation()
@@ -158,7 +158,7 @@ vlcHandleNetworkStreamError(logDirFilepath, vlcPid, chromePid)
         MsgBox, Error occurred when attempting to stream video.`r`nError log saved to %logFilepath%
         closeProcessWindows(vlcPid)
         closeProcessWindows(chromePid)
-        ExitApp
+        Reload
     }
 }
 
@@ -201,7 +201,7 @@ vlcGetCodecInformation(vlcPid)
         CenterImgSrchCoords("images\vlcCodecInfoLocationTxt.png", FoundX, FoundY)
     }
     Until ErrorLevel = 0
-    
+
     clickX := windowWidth // 2
     clickY := FoundY
 
@@ -283,7 +283,7 @@ youtubeGetTitle()
     Sleep, 333
     data := JSON.Load(Clipboard)
     title := data["title"]
-    
+
     invalidFilenameCharacters := Array("/", "\", ":", "*", "?", "", "<", ">", "|")
     For key, value in invalidFilenameCharacters
     {

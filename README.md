@@ -26,12 +26,10 @@ Ctrl + Alt + p: Pause script
 ## To-do List
 * Bugs
   * Chrome sometimes loses focus on first search. Possible fix: Search screen (not window) for search bar and click instead of using Ctrl + l
-  * Ctrl + Alt + r doesn't always close all windows
   * Script sometimes stops when saving video
 * Enhancements
   * Make canceling input dialog reload script
   * Handle saving video when name already exists in directory. Have user specify overwrite or skip at start of script?
-  * Reload or ExitApp when error occurs
   * Add checks for windows off screen before clicking. Add error logs for this.
   * Add more logging
   * Remove unnecessary Sleep calls. Change SendMode?
