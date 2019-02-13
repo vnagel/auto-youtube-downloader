@@ -15,7 +15,7 @@ You might need to retake the screen clippings that are in the "images" directory
 ### Usage
 Create a text file with the URL's of the YouTube videos you want to download each on their own line.
 
-F4: Run script. You will be prompted to enter the filepath to the text file, the directory you want to save the videos in, and the directory you want to save any error logs to.
+F4: Run script. You will be prompted to enter the filepath to the text file and the directory you want to save the videos to.
 
 Ctrl + Alt + r: Reload script
 
