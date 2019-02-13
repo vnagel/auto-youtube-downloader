@@ -28,7 +28,6 @@ Ctrl + Alt + p: Pause script
   * Chrome sometimes loses focus on first search. Possible fix: Search screen (not window) for search bar and click instead of using Ctrl + l
   * Script sometimes stops when saving video
 * Enhancements
-  * Make canceling input dialog reload script
   * Handle saving video when name already exists in directory. Have user specify overwrite or skip at start of script?
   * Add checks for windows off screen before clicking. Add error logs for this.
   * Add more logging

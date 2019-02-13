@@ -46,7 +46,7 @@ Loop, Read, % filepaths.youtubeUrlTxtFilepath
     activateAndWaitPid(vlc)
     vlcOpenNetworkStream(vlc)
     vlcPlayNetworkStream(A_LoopReadLine, vlc)
-    vlcHandleNetworkStreamError(filepaths.errorLogDir, vlc, chrome)
+    vlcHandleNetworkStreamError(filepaths.saveDir, vlc, chrome)
     vlcOpenCodecInformation(vlc)
     codecInfo := vlcGetCodecInformation(vlc)
     vlcExitCodecInformation()
@@ -297,11 +297,14 @@ getFilepathsFromUser()
     ; For faster testing, comment out this section and uncomment the line below (you will likely have to change the filepaths).
     inputBoxTitle := "Auto YouTube Downloader"
     InputBox, youtubeUrlTxtFilepath, %inputBoxTitle%, Enter filepath to the text file with YouTube URL's.`r`ne.g. C:\Users\vnagel\Documents\youtubeDownloadList.txt
+    if ErrorLevel
+        Reload
     InputBox, saveDir, %inputBoxTitle%, Enter filepath to directory to save videos. Directory must already exist.`r`ne.g. C:\Users\vnagel\Videos
-    InputBox, errorLogDir, %inputBoxTitle%, Enter filepath to directory to save error logs. Directory must already exist.`r`ne.g. C:\Users\vnagel\Documents
-    filepaths := {youtubeUrlTxtFilepath: youtubeUrlTxtFilepath, saveDir: saveDir, errorLogDir: errorLogDir}
+    if ErrorLevel
+        Reload
+    filepaths := {youtubeUrlTxtFilepath: youtubeUrlTxtFilepath, saveDir: saveDir}
 
-    ; filepaths := {youtubeUrlTxtFilepath: "D:\Videos\Android\androidVideoDownloadList.txt", saveDir: "D:\Videos\Android\testing", errorLogDir: "D:\Videos\Android\testing",}
+    ; filepaths := {youtubeUrlTxtFilepath: "D:\Videos\Android\androidVideoDownloadList.txt", saveDir: "D:\Videos\Android\testing"}
 
     return filepaths
 }
