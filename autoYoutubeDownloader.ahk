@@ -139,16 +139,23 @@ vlcHandleNetworkStreamError(logDirFilepath, vlcPid, chromePid)
     {
         WinWaitActive, Errors ahk_class Qt5QWindowIcon ahk_exe vlc.exe ahk_pid %vlcPid%
         Sleep, 333
+
+        WinGetPos, , , windowWidth, windowHeight,Errors ahk_class Qt5QWindowIcon ahk_exe vlc.exe ahk_pid %vlcPid%
+        Sleep, 333
+        clickX := windowWidth // 2
+        clickY := windowHeight // 2
+        Click, %clickX%, %clickY%, Left, 1
+        Sleep, 333
+
         Send, ^a
         Sleep, 333
         Send, ^c
         Sleep, 333
-        errorMsg := 
-        (LTrim
-        Clipboard "
-        "
-        )
-        FileAppend, %errorMsg%, logFilepath
+        FormatTime, currentTime
+        errorMsg := currentTime . "`r`n" . Clipboard . "`r`n"
+
+        FileAppend, %errorMsg%, %logFilepath%
+        MsgBox, Error occurred when attempting to stream video.`r`nError log saved to %logFilepath%
         closeProcessWindows(vlcPid)
         closeProcessWindows(chromePid)
         ExitApp
@@ -289,9 +296,9 @@ getFilepathsFromUser()
 {
     ; For faster testing, comment out this section and uncomment the line below (you will likely have to change the filepaths).
     inputBoxTitle := "Auto YouTube Downloader"
-    InputBox, youtubeUrlTxtFilepath, %inputBoxTitle%, Enter filepath to the text file with YouTube URL's.`ne.g. C:\Users\vnagel\Documents\youtubeDownloadList.txt
-    InputBox, saveDir, %inputBoxTitle%, Enter filepath to directory to save videos. Directory must already exist.`ne.g. C:\Users\vnagel\Videos
-    InputBox, errorLogDir, %inputBoxTitle%, Enter filepath to directory to save error logs. Directory must already exist.`ne.g. C:\Users\vnagel\Documents
+    InputBox, youtubeUrlTxtFilepath, %inputBoxTitle%, Enter filepath to the text file with YouTube URL's.`r`ne.g. C:\Users\vnagel\Documents\youtubeDownloadList.txt
+    InputBox, saveDir, %inputBoxTitle%, Enter filepath to directory to save videos. Directory must already exist.`r`ne.g. C:\Users\vnagel\Videos
+    InputBox, errorLogDir, %inputBoxTitle%, Enter filepath to directory to save error logs. Directory must already exist.`r`ne.g. C:\Users\vnagel\Documents
     filepaths := {youtubeUrlTxtFilepath: youtubeUrlTxtFilepath, saveDir: saveDir, errorLogDir: errorLogDir}
 
     ; filepaths := {youtubeUrlTxtFilepath: "D:\Videos\Android\androidVideoDownloadList.txt", saveDir: "D:\Videos\Android\testing", errorLogDir: "D:\Videos\Android\testing",}

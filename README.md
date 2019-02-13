@@ -4,6 +4,8 @@ This project contains an AutoHotkey script that uses Chrome and VLC media player
 ## Getting Started
 
 ### Prerequisites
+You must be running Windows because that is the only OS supported by AutoHotkey.
+
 Install [Chrome](https://www.google.com/chrome/) and [VLC media player](https://www.videolan.org/vlc/).
 
 You can run autoYoutubeDownloader.exe found in the [releases](https://github.com/vnagel/auto-youtube-downloader/releases) without installing any additional software. It must be run in a directory containing all the project files. If you want to edit the script, you need to install [AutoHotkey](https://www.autohotkey.com/download/).
@@ -27,7 +29,6 @@ Ctrl + Alt + p: Pause script
   * Ctrl + Alt + r doesn't always close all windows
   * Script sometimes stops when saving video
 * Enhancements
-  * Test network stream error logging
   * Make canceling input dialog reload script
   * Handle saving video when name already exists in directory. Have user specify overwrite or skip at start of script?
   * Reload or ExitApp when error occurs
